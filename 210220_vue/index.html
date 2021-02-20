@@ -12,70 +12,89 @@
 
         <!-- 마크업- DOM Veiw -->
 
-    <div id="app">
-        <h1>자바스크립트 프레임 워크 vue.js 공부하기 {{ txt }} </h1>
-        <h2>뷰 데이터 속성 바인딩 하기{{ msg }} 머스테시 안에 바인딩 속성</h2>
-        <p>{{ msg }}  </p>
-      
-        <hr>
-    </div>
+        <div id="app">
+            <h1>자바스크립트 프레임 워크 vue.js 공부하기 {{ txt }} </h1>
+            
+            <!-- h2를 클릭하여 msg 데이터 속성을 변경하겠다.  -->
+            <!--  
+
+                v-on         디렉티브 '@' 사용가능
+                v-bind       속성지정 ':' 사용가능
+
+                v-on:click ='(메서드)함수호출   ggoggo' 메서드(methods) 호출하여 
+                msg 속성 값을 변경 바인딩한다. 
+                
+            -->
+            <!-- <h2 v-on:click='ggoggo'>{{ msg }}</h2> -->
+            <h2 @click='ggoggo'>{{ msg }}</h2>
+            <p> {{ txt }} </p>
+        
+            <hr>
+        </div>
 
 
+            <!-- 스크립트 부 모델 (view Model) + 모델(Model)-->
+        <script>
+            // 뷰 생성
+            var obj = new Vue({
+                el:  '#app', 
+                data: {
+                    msg: '자바스크립트 data'  ,
+                    txt: 'JAVASCRIPT VUE.JS'  
+                },
+                methods: {
+                    ggoggo: function(){ 
 
-
-
-        <!-- 스크립트 부 모델 (view Model) + 모델(Model)-->
-    <script>
-        // 뷰 생성
-        var obj = new Vue({
-            el:'#app', 
-            data:{
-            msg: '자바스크립트 data'  ,
-            txt: 'JAVASCRIPT VUE.JS'  
-            }
-
-        });
-
-
-    </script>
-
-
-
-
-
-
-
-    <div id="header">
-        <h1> MVVM모델링 </h1>
-        <h2>{{ msg }}  </h2>
-        <p> {{ babo }} </p>
-        <hr>
-    </div>
-
-
-    <script>
-        //뷰 생성
-        var headerObj = new Vue({
-            el:'#header',
-            data:function(){    // 매서드 방식은 반드시 return { 속성(property) : 값(value)}
-                return { 
-                    msg: 'MVVM패턴',
-                    babo: 5000000 
+                    alert('메서드 호출 실행');
+                    this.msg = 'VUE.JS' // msg 속성 변경
+                    // 메서드 함수내에서는 속성 값 대입 연산자 = 사용 
+                    this.txt = '최은희' // txt 속성 변경
+                    }
                 }
-            }
-        });
+            });
+        </script>
 
 
-    </script>
 
 
-    <style>
-        #wrap{width:1000px; margin:0 auto; background:#f0f0f0; padding:100px 0;}
-        #app{ text-align: center; }
-        #header { text-align: center; }
-        h2,p{color:#39b;background:#fff;display: inline-flex; padding:10px 20px;font-size: 30px;font-weight: normal;}
 
-    </style>
+
+
+        <div id="header">
+            <h1> MVVM모델링 </h1>
+            <h2 @click='ggagga'>{{ msg }}  </h2>
+            <p> {{ babo }} </p>
+            <hr>
+        </div>
+
+
+        <script>
+            //뷰 생성
+            var headerObj = new Vue({
+                el:'#header',
+                data:function(){    // 매서드 방식은 반드시 return { 속성(property) : 값(value) }
+                    return { 
+                        msg: 'MVVM패턴',
+                        babo: 5000000 
+                    }
+                },
+                methods: {
+                    ggagga: function(){ // 함수 안에서는 끝 처리를 세미콜론 
+                        this.msg = '대한민국 만세';
+                        this.babo = 100000;
+                    }
+                }
+            });
+        </script>
+
+
+        <style>
+            #wrap{width:1000px; margin:0 auto; background:#f0f0f0; padding:100px 0;}
+            #app{ text-align: center; }
+            #header { text-align: center; }
+            h2,p{color:#39b;background:#fff;display: inline-flex; padding:10px 20px;font-size: 30px;font-weight: normal;}
+
+        </style>
 
 
 
