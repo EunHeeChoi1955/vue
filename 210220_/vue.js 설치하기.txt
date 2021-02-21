@@ -1,0 +1,7 @@
+vue.js 시작하기
+구글에서 확장팩스토어 앱 에서 vue.js 를 검색->다운 -> 상단에 고정하기
+
+구글 검색란에서 vue.js 검색해서 공홈에 들어감 ->  https://kr.vuejs.org/v2/guide/installation.html -> 설치방법에서 #CDN ->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 긁어서 비쥬얼스튜디오 스크립트에 붙여주기
+그리고 브라우저에  https://cdn.jsdelivr.net/npm/vue/dist/vue.js 쳐서 스크립트가 나오면 ->다른이름으로 저장 ->
+파일 vue/lib 파일속에 넣어주기 -> html 파일안에 <script src="./vue/lib/vue.js"></script> 라고 적어주기

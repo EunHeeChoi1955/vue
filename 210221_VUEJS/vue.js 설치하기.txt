@@ -1,0 +1,247 @@
+vue.js 시작하기
+구글에서 확장팩스토어 앱 에서 vue.js 를 검색->다운 -> 상단에 고정하기
+
+구글 검색란에서 vue.js 검색해서 공홈에 들어감 ->  https://kr.vuejs.org/v2/guide/installation.html -> 설치방법에서 #CDN ->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 긁어서 비쥬얼스튜디오 스크립트에 붙여주기
+그리고 브라우저에  https://cdn.jsdelivr.net/npm/vue/dist/vue.js 쳐서 스크립트가 나오면 ->다른이름으로 저장 ->
+파일 vue/lib 파일속에 넣어주기 -> html 파일안에 <script src="./vue/lib/vue.js"></script> 라고 적어주기
+
+
+
+
+
+비쥬얼 스튜디오 zoom기능
+file -> preference -> setting -> 'zoom'검색 -> 체크하기
+
+
+
+
+
+github작동하기
+
+//////////////////////////////[집에서 github 올린 파일 다운받을때]//////////////////////////////////
+git hub에서 내가 최근에 넣은 폴더가 있는 아이디 선택 -> 초록색 code 누르면 -> 주소 긁기 "https://github.com/EunHeeChoi1955/vue.git"
+-> visual studio -> 종이두장 겹친 아이콘 -> 리포지토리 복제(클론)-> 주소창에 ' 위에 주소 넣기'-> 다운받을 위치 정함
+
+
+최초에는 
+깃 환경설정 
+폴더 (리포지토리)만들고
+폴더 (리포지토리)로 이동하고
+
+
+
+//////////////////////// 환경설정 로그인정보 /////////////////////////////////////////////////////////
+git init
+
+git config user.email 'med20001955@naver.com'
+
+git config user.name 'EunHeeChoi1955'
+
+git remote add origin  https://github.com/EunHeeChoi1955/vue.git
+
+
+/////////////////////// 업로드 /////////////////////////////////////////
+git add .
+
+git commit -m '업로드 또는 업데이트'
+
+git push origin master
+
+
+
+
+
+///////////////////////////////////////////////////////////////////
+
+
+
+학원 교실에 와서  작업시는
+과제물을 내려받고 
+
+수업내용 중간 끝나고 업로드 한다.
+
+업로드 작업 못한다.
+
+
+왜?
+업데이트 내용, 또는 변경(삭제, 추가. 수정) 내용이 있을때 
+그럴때는 반드시 
+교실에서는
+먼저 
+git pull origin master 내려받기 (Down load)
+과제 하고 복습하고
+다시 변경 (수정 ,삭제, 추가 )내용을 
+다시 깃허브에 업로드 해서 최신 정보내용을 유지한다.
+
+버전관리라고 말함......
+
+git add .
+git commit -m '집에서 update'
+git push origin master 
+
+
+다음주 다시 내려받고 수업하고 올림
+git pulll origin master
+
+업로드한다...
+
+
+
+git add .
+git commit -m '교실에서 update'
+git push origin master 
+
+
+
+
+
+
+
+
+경로설정
+D:/1_chldmsgml/210220_/vue/lib 
+
+
+///////////////////////////////////////////////////////
+깃설정
+/////////////////////////////////////////////////////
+TJ@1304-17 MINGW64 /d
+$ cd D:/1_chldmsgml/210220_/vue/lib
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue/lib
+$ git int
+git: 'int' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue/lib
+$ git init
+Initialized empty Git repository in D:/1_chldmsgml/210220_/vue/lib/.git/
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue/lib (master)
+$ ls
+vue.js
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ ls -la
+total 340
+drwxr-xr-x 1 TJ 197121      0 Feb 20 12:32 ./
+drwxr-xr-x 1 TJ 197121      0 Feb 20 12:04 ../
+drwxr-xr-x 1 TJ 197121      0 Feb 20 12:49 .git/
+-rw-r--r-- 1 TJ 197121 342147 Feb 20 11:56 vue.js
+
+
+////////////////////////////////////////////////////////////////////////////
+원격접속(리모트 remote) 필요한것 : 사용자 이메일과 사용자 이름
+////////////////////////////////////////////////////////////////////////////
+
+사용자 (user) 이메일 (email)
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git config user.email 'med20001955@naver.com'
+
+
+사용자 (user) 이름 (email)
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git config user.name 'EunHeeChoi1955'
+
+//깃허브 리포지토리(저장소) 원격 추가(add) 접속
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git remote add origin https://github.com/EunHeeChoi1955/vue.git
+
+// 제데로 됐는지 '확인'하는 방법
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git remote -v
+origin  https://github.com/EunHeeChoi1955/vue.git (fetch)
+origin  https://github.com/EunHeeChoi1955/vue.git (push)
+
+
+
+//파일 올리기 업로드 (Upload) (Push)
+
+3-1.   
+///////////////////////////////////////////////
+업로드할 파일 선택한다.
+스테이징(올릴파일을 스테이징에 올린다.)
+git add .
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git add .
+warning: adding embedded git repository: 210220_vue/vue
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> 210220_vue/vue
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached 210220_vue/vue
+hint:
+hint: See "git help submodule" for more information.
+
+
+
+
+3-2. 
+//////////////////////////////////////////////
+commit 커밋한다.(Commit)
+검증 수정된거 삭제된거 추가된거 이런것들을 검증(검사)
+
+    git commit -m '2021-02-20 VS CODE 젠코딩 공부한것'
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git commit -m '업로드'
+[master (root-commit) 51429e5] 업로드
+ 1 file changed, 11965 insertions(+)
+ create mode 100644 vue.js
+
+
+
+3-3
+/////////////////////////////////////////////
+최종 업로드 push하기
+
+git push origin  master
+
+TJ@1304-17 MINGW64 /d/1_chldmsgml/210220_/vue (master)
+$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 88.29 KiB | 5.52 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/EunHeeChoi1955/vue.git
+ * [new branch]      master -> master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
