@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디렉티브 v-for 반복문 </title>
+    
+    <!-- 오픈소스 -->
+    <script src='./vue/lib/vue.js'></script>
+    <style>
+        #header{text-align: center;}  
+    </style>
+</head>
+<body>
+    <!--html 요소 영역 -->
+    <div id="header">
+        <h1> 헤더 영역의 뷰 라이프 사이클 </h1>
+        <h2> 머스테시 표시안에 데이터 속성 (속성변수)안에 출력{{ msg }} </h2>
+        <p v-on:click = 'price'> 제품 가격은 {{ num }} 입니다. </p> -->
+        <butto @click = 'price'>제품가격 클릭</button>
+        <h1>{{ num }}</h1>
+
+        <p v-on:click = 'price'> 제품 가격은 {{ num }} 입니다. </p>
+        <p v-on:mouseenter = 'price'> 제품 가격은 {{ num }} 입니다. </p>
+        <p @click = 'product'> 'v-on:' 디렉티브 '@'디렉티브 [@click = 'product']특수문자. </p>
+    </div>
+   
+    <!-- 스크립트 영역 -->
+    <script>
+
+        const header = new Vue({
+            el :'#header',
+            data:{
+                msg :'뷰 인스턴스 데이터 메세지',
+                num : 590
+            },
+            methods:{   //메소드 관리해주는 속성
+
+
+                // 메서드 리터럴 함수
+                product : function(){
+                    // let that = this;
+                    let that = header;
+                    // header.num = 100
+                    // this.num = 100;
+                    that.num += 100;
+                    this.msg = '데이터 메시지 수정';
+                },
+                 price :function(){
+                     this.num += 1000000;
+                }                
+            }
+        });
+       
+        
+    </script>
+
+</body>
+</html>
