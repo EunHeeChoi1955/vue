@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트_전역컴포넌트_템플릿_상위컴포넌트에서 하위컴포넌트 통신</title>
+    
+    <!-- 오픈소스 -->
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src='./vue/lib/vue.js'></script>
+    
+    <style>
+
+       #wrapper {width:1200px; margin:0 auto; text-align: center;background: #f0f0f0;}
+       #wrapper #main{}
+    
+       #wrapper #main .button-box {color:#379;padding:50px 0; }
+       #wrapper #main .button-box button {cursor:pointer; background: #000; color:#eee; font-size:20px; width:200px; height:50px;border-radius:5px;font-weight: 600;}
+       #wrapper #main .button-box button:hover {background: #333; }
+       #wrapper #main .button-box button:active {background: #922; }
+       #wrapper #main .button-box p {font-size:40px; color: #379; color: #000; padding:100px 0;}
+    
+    </style>
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- HTML -->
+        <div id="main">
+          
+            <div class="button-box" v-on:click='countFn'>
+                <button v-on:click='countFn'>클릭하세요!</button>
+                <babo-component v-bind:count ='num'></babo-component>
+            </div>
+
+        </div>
+
+
+
+
+        
+        <!-- 스크립트 영역  -->
+        <script>
+
+            //  전역 컴포넌트
+            Vue.component('babo-component',{
+                props:['count'],
+                template:'<p> {{ count }} </p>'  // 하위 컴포넌트 값 props의 속성 이름 'count'로 전달 받음.
+            });
+
+
+
+            // 뷰 인스턴스 생성
+            var main = new Vue({
+                el:'#main',
+                data:{
+                    num:0   // 루트의 num값이 하위 컴포넌트에 전달(통신)됨.
+                },
+                methods:{                    
+                    countFn:function(){                        
+                        this.num++;    
+                    }
+                }
+
+            });
+
+
+
+        
+        </script>
+    </div>
+</body>
+</html>
