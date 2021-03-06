@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역컴포넌트 _ 템플릿_변수사용</title>
+    
+    <!-- 오픈소스 -->
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src='./vue/lib/vue.js'></script>
+    
+    <style>
+       #wrap { width:1200px; margin:0 auto;}
+   
+    </style>
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="study">
+            <h1>공부해야할 리스트</h1>
+            <ol>
+                <data-comp v-for='item in studyData' v-bind:propsdata='item'></data-comp>
+            </ol>
+        </div>
+
+        <script>
+            var dataComp = {
+                props : ['propsdata'],
+                template : '<li> 코드번호:{{ propsdata.id }}, &nbsp; 과목:{{ propsdata.name }}</li>'
+            }
+
+            var study =new Vue({
+                el: '#study',
+                data:{
+                    studyData:[
+                        {id:'A01', name:'정보처리기능사 실기'},
+                        {id:'B02', name:'정보처리기사 필기'},
+                        {id:'C03', name:'정보처리기사 실기'},
+                    ]
+                },
+                components:{
+                    'data-comp':dataComp
+                }
+            });
+          
+
+        </script>
+
+        
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트_지역컴포넌트 _ 템플릿</title>
+    
+    <!-- 오픈소스 -->
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src='./vue/lib/vue.js'></script>
+    
+    <style>
+       #wrap {width:1200px; margin:0 auto; }
+       #wrap #localComp {}
+       #wrap #localComp h1{}     
+    </style>
+
+</head>
+<body>
+    <div id="wrap">
+
+        <div id="localComp">
+            <h1>지역 컴포넌트 등록</h1>
+            <header-component></header-component>
+            <main-component></main-component>
+            <footer-component></footer-component>
+            <popup-component></popup-component>
+            <modal-component></modal-component>
+        </div>
+
+
+        <script>
+            var localComp = new Vue({
+                el: '#localComp',
+                data:{
+                    Comp1:'component-1',
+                    Comp2:'component-2',
+                    Comp3:'component-3',
+                    Comp4:'component-4',
+                    Comp5:'component-5',
+                },
+                components:{    //  지역 컴포넌트
+                    'header-component':{
+                        template:'<h2> header-component 지역 컴포넌트 생성 되었습니다. </h2>'
+                    },
+                    'main-component':{
+                        template:'<h2> main-component 지역 컴포넌트 생성 되었습니다. </h2>'
+                    },
+                    'footer-component':{
+                        template:'<h2> footer-component 지역 컴포넌트 생성 되었습니다. </h2>'
+                    },
+                    'popup-component':{
+                        template:'<h2> popup-component 지역 컴포넌트 생성 되었습니다. </h2>'
+                    },
+                    'modal-component':{
+                        template:'<h2> modal-component 지역 컴포넌트 생성 되었습니다. </h2>'
+                    }
+                }
+            });
+
+        </script>
+
+        
+        
+    </div>
+</body>
+</html>
