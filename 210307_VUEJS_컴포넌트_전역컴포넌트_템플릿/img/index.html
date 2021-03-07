@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디렉티브 v-for 반복문 & v-on:이벤트 @click 뷰 라이프 사이클 & 제이쿼리 사용</title>
+    <!-- 오픈소스  -->
+    <script src="./js/lib/jquery.min.js"></script>    
+    <script src="./vue/lib/vue.js"></script>
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <h1> a의 값(Value) : {{ a }} /  b의 값(Value) : {{ b }} </h1>
+        <h2 v-if='a'> 조건문(v-if)이 참(True)인 경우 </h2>
+        <h2 v-if='b'> 조건문(v-if)이 거짓(False)인 경우 </h2>
+        <h3><a v-bind:href='url1'> jquery 사이트 가기 </a></h3>
+        <h3><a v-bind:href='url2'> vue.js 사이트 가기 </a></h3>
+        <h3><img v-bind:src='imgurl1' v-bind:alt='imgalt1'></h3>
+        <h3><img v-bind:src='imgurl2' v-bind:alt='imgalt2'></h3>
+    </div>
+
+    <script>
+        const obj = new Vue({
+            el:'#app',
+            data:{
+                a:true,
+                b:false,
+                url1:'https://jquery.com/',
+                url2:'https://vuejs.org/',
+                imgurl1:'./img/logo.png',
+                imgurl2:'./img/berries-1546125_1920.jpg',
+                imgalt1:'달달한 딸기',
+                imgalt2:'VUE 로고'
+
+            }
+        });
+    </script>
+
+</body>
+</html>

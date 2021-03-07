@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역컴포넌트 _ 템플릿_변수사용</title>
+    
+    <!-- 오픈소스 -->
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src='./vue/lib/vue.js'></script>
+    
+    <style>
+       #wrap { width:1200px; margin:0 auto; }
+       #wrap #localComp {}
+       #wrap #localComp h1{}     
+    </style>
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="localComp">
+            <h1>연습</h1>
+            <header-comp></header-comp>
+            <main-comp></main-comp>
+            <footer-comp></footer-comp>
+            <popup-comp></popup-comp>
+
+        </div>
+        <script>
+            var headerComp = {
+                template:'<h2>header-comp 생성</h2>'
+            }
+            var mainComp = {
+                template:'<h2>main-comp 생성</h2>'
+            }
+            var footerComp = {
+                template:'<h2>footer-comp 생성</h2>'
+            }
+            var popupComp = {
+                template:'<h2>popup-comp 생성</h2>'
+            }
+
+
+
+
+
+
+            var localComp = new Vue({
+
+                el: '#localComp',
+                data: {
+                    Comp1:'comp-1',
+                    Comp2:'comp-2',
+                    Comp3:'comp-3',
+                    Comp4:'comp-4',
+                  
+                },
+                components:  {
+                    'header-comp':headerComp,
+                    'main-comp':mainComp,
+                    'footer-comp':footerComp,
+                    'popup-comp':popupComp
+                }
+
+            });
+          
+
+        </script>
+
+        
+        
+    </div>
+</body>
+</html>
